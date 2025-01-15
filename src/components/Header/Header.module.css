@@ -1,0 +1,14 @@
+.active {
+  color: red;
+}
+
+.header {
+  display: flex;
+  gap: 350px;
+  padding: 24px 64px;
+}
+
+.headerList {
+  display: flex;
+  gap: 32px;
+}
