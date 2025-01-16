@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -16,8 +16,17 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Loader from "./components/Loader/Loader";
 
 import "./App.css";
+import { fetchCampers } from "./redux/campersOps";
+import { useDispatch } from "react-redux";
 
 function App() {
+
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchCampers());
+  }, [dispatch])
+
   return (
     <>
       <Header />

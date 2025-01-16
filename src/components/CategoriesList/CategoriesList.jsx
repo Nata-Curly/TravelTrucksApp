@@ -9,10 +9,8 @@
     //   "gas": false,
     //   "water": true,
 
-const CategoriesList = ({camper}) => {
-  return (
-      <div>{ camper}</div>
-  )
+const CategoriesList = () => {
+  return <div>CategoriesList</div>;
 }
 
 export default CategoriesList

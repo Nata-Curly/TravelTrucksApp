@@ -1,0 +1,27 @@
+.camperItem {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  max-width: 888px;
+}
+
+.camperImg {
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.camperInfo,
+.camperDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.camperTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
