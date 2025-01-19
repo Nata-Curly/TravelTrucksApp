@@ -1,23 +1,32 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import { selectCampers } from "../../redux/selectors";
-// import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import CamperItem from "../CamperItem/CamperItem";
-import css from './CampersList.module.css'
+import css from "./CampersList.module.css";
 
 const CampersList = () => {
   const campers = useSelector(selectCampers);
- 
+  const [visibleCampers, setVisibleCampers] = useState(4);
+
+  const handleLoadMore = () => {
+    setVisibleCampers((prev) => prev + 4);
+  };
+
+  const isAllLoaded = visibleCampers >= campers.length;
+
   return (
-    <ul className={css.campersList}>
-      {campers?.map((camper) => (
-        <CamperItem key={camper.id} camper={camper} />
-      ))}
-      {/* {campers.length > 0 ? (
-        campers.map((camper) => <CamperItem key={camper.id} camper={camper} />)
-      ) : (
-        <ErrorMessage message={"Oops..."} />
-      )} */}
-    </ul>
+    <div className={css.container}>
+      <ul className={css.campersList}>
+        {campers?.slice(0, visibleCampers).map((camper) => (
+          <CamperItem key={camper.id} camper={camper} />
+        ))}
+      </ul>
+      {!isAllLoaded && (
+        <button className={css.loadMore} type="button" onClick={handleLoadMore}>
+          Load more
+        </button>
+      )}
+    </div>
   );
 };
 

@@ -3,6 +3,9 @@
   gap: 24px;
   padding: 24px;
   max-width: 888px;
+  border-radius: 20px;
+  border: 1px solid var(--Gray-light, #dadde1);
+  background: var(--White, #fff);
 }
 
 .camperImg {
@@ -18,10 +21,19 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
+  /* width: 100%; */
 }
 
 .camperTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.camperDescriptionText {
+  width: 350px;
+  /* max-width: 100%; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

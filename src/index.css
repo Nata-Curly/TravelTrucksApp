@@ -1,14 +1,14 @@
 :root {
-  --font-family: "Inter", sans-serif;
-  --main: #101828;
+  --Font-family: "Inter", sans-serif;
+  --Main: #101828;
   --white-primary: #fff;
-  --white-secondary: #f7f7f7;
-  --badges: #f2f4f7;
-  --gray-light: #dadde1;
+  --Inputs: #f7f7f7;
+  --Badges: #f2f4f7;
+  --Gray-light: #dadde1;
   --gray-primary: #475467;
   --gray-secondary: #6c717b;
-  --red: #e44848;
-  --hover: #d84343;
+  --Button: #e44848;
+  --Button-Hover: #d84343;
   --star: #ffc531;
 }
 
@@ -20,6 +20,9 @@ body {
 *::before,
 *::after {
   box-sizing: inherit;
+  font-family: var(--Font-family);
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 h1,
@@ -32,8 +35,8 @@ p {
   margin: 0;
 }
 
-a{
-  text-decoration: none;
+a {
+  text-decoration: inherit;
 }
 
 ul {
@@ -47,3 +50,25 @@ img {
   display: block;
 }
 
+.container {
+  max-width: 1440px;
+  padding: 48px 64px;
+  margin: 0 auto;
+}
+
+.redBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  width: 170px;
+  padding: 16px 0;
+  gap: 10px;
+  border-radius: 200px;
+  background-color: var(--Button);
+  transition: background-color 250ms ease-out;
+}
+
+.redBtn:hover {
+  background-color: var(--Button-Hover);
+}

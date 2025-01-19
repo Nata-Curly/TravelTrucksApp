@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import CategoriesList from "../CategoriesList/CategoriesList";
-import css from './CamperItem.module.css'
+import css from "./CamperItem.module.css";
+import CamperFeaturesList from "../CamperFeaturesList/CamperFeaturesList";
 
 const CamperItem = ({ camper }) => {
   const camperLocation = useLocation();
-  const { id, name, price, rating, location, description, gallery, reviews } = camper;
-  
+  const { id, name, price, rating, location, description, gallery, reviews } =
+    camper;
+
   return (
     <li id={id} className={css.camperItem}>
       <img className={css.camperImg} src={gallery[0].thumb} alt={name} />
@@ -19,15 +20,15 @@ const CamperItem = ({ camper }) => {
             {rating}({reviews.length} Reviews)
             <span>{location}</span>
           </p>
-          <p>{description}</p>
-          <CategoriesList camper={camper} />
+          <p className={css.camperDescriptionText}>{description}</p>
+          <CamperFeaturesList camper={camper} />
         </div>
-      <Link to={`/catalog/${id}`} state={camperLocation}>
-        Show more
-      </Link>
+        <Link className="redBtn" to={`/catalog/${id}`} state={camperLocation}>
+          Show more
+        </Link>
       </div>
     </li>
   );
-}
+};
 
-export default CamperItem
+export default CamperItem;

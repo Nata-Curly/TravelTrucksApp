@@ -17,13 +17,13 @@ const CamperDetailsPage = () => {
   }, [id, dispatch]);
 
   const getActiveClass = ({ isActive }) => {
-    return isActive ? css.active : "";
+    return isActive ? `${css.link} ${css.active}` : css.link;
   };
 
   return (
-    <div>
+    <main className="container">
       <Camper camper={camper} />
-      <ul>
+      <ul className={css.wrapper}>
         <li>
           <NavLink className={getActiveClass} to="features">
             Features
@@ -38,7 +38,7 @@ const CamperDetailsPage = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+    </main>
   );
 };
 

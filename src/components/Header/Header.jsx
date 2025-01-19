@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import css from "./Header.module.css";
+import logo from '../../images/logo.svg'
 
 const Header = () => {
   const getActiveClass = ({ isActive }) => {
@@ -7,25 +8,28 @@ const Header = () => {
   };
   return (
     <header className={css.header}>
-      <a href="/">
-        <svg width='136' height='16'>
-          <use href="./images/sprite.svg#logo" />
-        </svg>
-      </a>
-      <nav>
-        <ul className={css.headerList}>
-          <li>
-            <NavLink className={getActiveClass} to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={getActiveClass} to="/catalog">
-              Catalog
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Link to="/">
+        {/* <svg width='136' height='16'>
+          <use xlinkHref="./images/sprite.svg#logo" />
+        </svg> */}
+        <img src={logo} alt="logo" />
+      </Link>
+      <div>
+        <nav>
+          <ul className={css.headerList}>
+            <li>
+              <NavLink className={getActiveClass} to="/">
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={getActiveClass} to="/catalog">
+                Catalog
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

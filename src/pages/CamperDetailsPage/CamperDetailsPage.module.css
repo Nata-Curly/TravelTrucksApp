@@ -1,3 +1,43 @@
-.active {
-  color: red;
+.wrapper {
+  display: flex;
+  gap: 40px;
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--Gray-light);
 }
+
+.link {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  position: relative;
+}
+
+/* .activeLink {
+  color: red;
+} */
+
+/* .link {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+} */
+
+.link:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -24px;
+  width: 0;
+  height: 4px;
+  border-radius: 8px;
+  background-color: var(--Button-Hover);
+  content: "";
+  transition: width 500ms ease-out;
+}
+
+.active:after {
+  width: 100%;
+}
+

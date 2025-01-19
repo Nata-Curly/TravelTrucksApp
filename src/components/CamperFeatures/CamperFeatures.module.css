@@ -1,0 +1,34 @@
+.featuresContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 543px;
+  height: 500px;
+  padding: 44px;
+  border-radius: 10px;
+  background: var(--Inputs, #f7f7f7);
+}
+
+.details {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--Gray-light);
+}
+
+.details > h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+}

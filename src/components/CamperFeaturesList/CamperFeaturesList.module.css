@@ -1,0 +1,22 @@
+
+
+.featuresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.featuresItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background: var(--Badges);
+  mix-blend-mode: multiply;
+}
+.featuresItem > svg {
+  fill: var(--Badges);
+  stroke: var(--Main, #101828);
+}
+
