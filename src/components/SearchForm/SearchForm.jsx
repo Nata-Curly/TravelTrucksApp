@@ -1,29 +1,33 @@
-import { useSelector } from "react-redux"
-import { selectFilters } from "../../redux/selectors"
 import LocationFilter from "../LocationFilter/LocationFilter";
 import EquipmentFilter from "../EquipmentFilter/EquipmentFilter";
 import VehicleTypeFilter from "../VehicleTypeFilter/VehicleTypeFilter";
+import css from './SearchForm.module.css'
+
+
+import { useDispatch } from "react-redux";
+import { applyFilters } from "../../redux/filtersSlice";
 
 const SearchForm = () => {
-  const filters = useSelector(selectFilters);
+  const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('filters:', filters)
-  }
-  return (
-    <div>
-      <aside>
-        <form onSubmit={handleSubmit}>
-          <LocationFilter />
-          <h3>Filters</h3>
-          <EquipmentFilter />
-          <VehicleTypeFilter />
-          <button type="submit">Search</button>
-        </form>
-      </aside>
-    </div>
-  );
-}
+    dispatch(applyFilters()); 
+  };
 
-export default SearchForm
+  return (
+    <aside className={css.aside}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <LocationFilter />
+        <h3 className={css.filters}>Filters</h3>
+        <EquipmentFilter />
+        <VehicleTypeFilter />
+        <button className="redBtn" type="submit">
+          Search
+        </button>
+      </form>
+    </aside>
+  );
+};
+
+export default SearchForm;

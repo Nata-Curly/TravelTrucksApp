@@ -1,12 +1,12 @@
 :root {
   --Font-family: "Inter", sans-serif;
   --Main: #101828;
-  --white-primary: #fff;
+  --White: #fff;
   --Inputs: #f7f7f7;
   --Badges: #f2f4f7;
   --Gray-light: #dadde1;
-  --gray-primary: #475467;
-  --gray-secondary: #6c717b;
+  --Text: #475467;
+  --Gray: #6c717b;
   --Button: #e44848;
   --Button-Hover: #d84343;
   --star: #ffc531;
@@ -36,7 +36,8 @@ p {
 }
 
 a {
-  text-decoration: inherit;
+  text-decoration: none;
+  color: var(--Main);
 }
 
 ul {
@@ -60,11 +61,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: inherit;
+  color: var(--White);
   width: 170px;
   padding: 16px 0;
   gap: 10px;
   border-radius: 200px;
+  border: none;
   background-color: var(--Button);
   transition: background-color 250ms ease-out;
 }

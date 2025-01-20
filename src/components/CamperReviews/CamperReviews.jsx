@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { selectCamper } from "../../redux/selectors";
-import css from './CamperReviews.module.css'
+import css from "./CamperReviews.module.css";
 import Stars from "../Stars/Stars";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import BookingForm from "../BookingForm/BookingForm";
 
 const CamperReviews = () => {
   const camper = useSelector(selectCamper);
-  const reviews = camper.reviews
+  const reviews = useMemo(() => camper?.reviews || [], [camper]);
 
   useEffect(() => {
     if (reviews.length > 0) {
@@ -18,15 +19,14 @@ const CamperReviews = () => {
     }
   }, [reviews]);
 
-  
   return (
-    <div>
+    <div className={css.wrapper}>
       <ul className={css.reviewsList}>
         {reviews?.map((review, idx) => (
           <li key={idx}>
             <div className={css.reviewer}>
               <div className={css.avatar}>{review.reviewer_name[0]}</div>
-              <div className={css.wrapper}>
+              <div className={css.reviewWrapper}>
                 <h3>{review.reviewer_name}</h3>
                 <Stars rating={review.reviewer_rating} />
               </div>
@@ -35,8 +35,9 @@ const CamperReviews = () => {
           </li>
         ))}
       </ul>
+      <BookingForm />
     </div>
   );
-}
+};
 
-export default CamperReviews
+export default CamperReviews;

@@ -4,33 +4,47 @@ const initialState = {
   location: "",
   equipment: [],
   vehicleType: "",
+  appliedFilters: {
+    location: "",
+    equipment: [],
+    vehicleType: "",
+  }
 };
+
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
     locationFilter(state, { payload }) {
-      // return {
-      //   ...state,
-      //   location: payload,
-      // };
       state.location = payload;
     },
-    equipmentFilter: (state, { payload }) => {
-      const equipment = payload;
-      if (state.equipment.includes(equipment)) {
-        state.equipment = state.equipment.filter((item) => item !== equipment);
+    equipmentFilter(state, { payload }) {
+      if (state.equipment.includes(payload)) {
+        state.equipment = state.equipment.filter((item) => item !== payload);
       } else {
-        state.equipment.push(equipment);
+        state.equipment.push(payload);
       }
     },
-    vehicleTypeFilter: (state, { payload }) => {
+    vehicleTypeFilter(state, { payload }) {
       state.vehicleType = payload;
+    },
+    applyFilters(state) {
+      state.appliedFilters = {
+        location: state.location,
+        equipment: [...state.equipment],
+        vehicleType: state.vehicleType,
+      };
     },
   },
 });
 
-export const { locationFilter, equipmentFilter, vehicleTypeFilter } = filtersSlice.actions;
+export const {
+  locationFilter,
+  equipmentFilter,
+  vehicleTypeFilter,
+  applyFilters,
+} = filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;
+

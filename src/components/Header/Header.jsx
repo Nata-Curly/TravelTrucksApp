@@ -9,9 +9,6 @@ const Header = () => {
   return (
     <header className={css.header}>
       <Link to="/">
-        {/* <svg width='136' height='16'>
-          <use xlinkHref="./images/sprite.svg#logo" />
-        </svg> */}
         <img src={logo} alt="logo" />
       </Link>
       <div>

@@ -1,0 +1,13 @@
+.aside {
+  width: 360px;
+}
+
+.filters {
+  color: var(--Text);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}

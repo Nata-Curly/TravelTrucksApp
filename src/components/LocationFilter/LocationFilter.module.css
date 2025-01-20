@@ -1,0 +1,22 @@
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--Gray);
+  position: relative;
+}
+
+.location > input {
+  padding: 18px;
+  padding-left: 52px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--Inputs);
+}
+
+.location > svg {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  fill: var(--Gray);
+}

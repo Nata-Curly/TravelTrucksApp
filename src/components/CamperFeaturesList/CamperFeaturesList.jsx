@@ -4,7 +4,6 @@ import sprite from "../../images/sprite.svg";
 
 const CamperFeaturesList = ({ camper }) => {
 
-
   const features = Object.keys(camper).filter((key) => camper[key] === true);
 
   const iconMap = {
